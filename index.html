@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Индукционная плита</title>
+    <link rel="stylesheet" href="index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div class="modal" id="changeModal">
+    <div class="inner_modal">
+        <p>Изменить операцию</p>
+        <form id="newOptionForm" name="newOptionForm" class="editNewButton">
+            <p>📛Название операции: <input name="name" type="text" placeholder="Название" id="chName"></p>
+            <p>⏳Время выполнения операции: <input name="name" type="text" placeholder="Название" id="chTime"></p>
+            <p>⏸Пауза вращение назад: <input type="number" name="forv_off" id="chForvOff"></p>
+            <p>🚭Клапан: <input type="checkbox" name="valve" id="chValve"></p>
+            <p>🔃Вращение назад: <input type="number" name="rev_on" id="chRevOn"></p>
+            <p>🔥Перегрев: <input type="number" name="overtemp" id="chOvertemp">℃</p>
+            <p>🧨Температура: <input type="number" name="temp" id="chTemp">℃</p>
+            <p>🎾Мощность: <input type="number" name="power" id="chPower">Вт</p>
+            <p>🔃Вращение вперёд: <input type="number" id="chForvOn" name="forv_on"></p>
+            <p>⏸Пауза вращения назад: <input type="number" id="chRevOff" name="rev_off"></p>
+            <button id="editOperation">Изменить шаг операции</button>
+
+        </form>
+        <button id="closeChange">Закрыть окно</button>
+    </div>
+</div>
+<div class="modal" id="createModal">
+    <div class="inner_modal">
+        <p>Изменить операцию</p>
+        <form id="createOptionForm" name="newOptionForm" class="editNewButton">
+            <p>📛Название операции: <input name="name" type="text" placeholder="Название" id="crName"></p>
+            <p>⏰Время выполнения операции: <input name="name" type="text" placeholder="Название" id="crTime"></p>
+            <p>⏸Пауза вращение назад: <input type="number" name="forv_off" id="crForvOff"></p>
+            <p>🚭Клапан: <input type="checkbox" name="valve" id="crValve"></p>
+            <p>🔃Вращение назад: <input type="number" name="rev_on" id="crRevOn"></p>
+            <p>🔥Перегрев: <input type="number" name="overtemp" id="crOvertemp">℃</p>
+            <p>🧨Температура: <input type="number" name="temp" id="crTemp">℃</p>
+            <p>🎾Мощность: <input type="number" name="power" id="crPower">Вт</p>
+            <p>🔃Вращение вперёд: <input type="number" id="crForvOn" name="forv_on"></p>
+            <p>⏸Пауза вращения назад: <input type="number" id="crRevOff" name="rev_off"></p>
+            <button id="createOperation">Добавить новую операцию</button>
+
+        </form>
+        <button id="createChange">Закрыть окно</button>
+    </div>
+</div>
+<div class="modal" id="changeTitle">
+    <div class="inner_modal">
+        <p>Изменить операцию</p>
+        <form id="changeTitleForm" name="newOptionForm" class="editNewButton">
+            <p>📛Название операции: <input name="name" type="text" placeholder="Название" id="chTitle"></p>
+            <button id="changeTitleButton">Изменить название</button>
+        </form>
+        <button id="closeChangeModal">Закрыть окно</button>
+    </div>
+</div>
+<div class="header">
+    <p class="title">Управление индукционной плитой</p>
+    <div class="header_elements">
+        <a href="#bl1">Рецепты</a>
+        <a href="#bl2">Создать рецепт</a>
+        <a href="#lblNowOp">Текущая операция</a>
+    </div>
+</div>
+<div class="container">
+    <p class="title" id="bl1">Добавленные рецепты🌞</p>
+    <div id="menusContainer">
+
+    </div>
+    <p class="title" id="bl2">Создать новый рецепт⛓</p>
+    <div>
+        <i>Название рецепта</i>
+        <input type="text" name="" placeholder="Выберите название рецепта" id="newMenuTitle" class="option">
+        <p>Добавление шага к рецепту</p>
+        <div class="newOption">
+            <form action="" id="newOptionForma">
+                <p>📛Название операции: <input name="name" type="text" placeholder="Название"></p>
+                <p>⏳Время выполнения операции: <input name="time" type="text" placeholder="Время"></p>
+                <p>⏸Пауза вращение назад: <input type="number" name="forv_off"></p>
+                <p>🚭Клапан: <input type="checkbox" name="valve"></p>
+                <p>🔃Вращение назад: <input type="number" name="rev_on"></p>
+                <p>🔥Перегрев: <input type="number" name="overtemp">℃</p>
+                <p>🧨Температура: <input type="number" name="temp">℃</p>
+                <p>🎾Мощность: <input type="number" name="power">Вт</p>
+                <p>🔃Вращение вперёд: <input type="number" name="forv_on"></p>
+                <p>⏸Пауза вращения назад: <input type="number" name="rev_off"></p>
+                <button id="buttonNewItem">Добавить к рецепту</button>
+            </form>
+        </div>
+        <p>Предварительный просмотр</p>
+        <p id="prevtitle"></p>
+        <div id="newMenuOptionsHub" class="newOption">
+
+        </div>
+        <button id="saveNewMenuButton" class="option">💳💳Сохранить новый рецепт</button>
+    </div>
+    <button id="saveAllData">Сохранить данные🤩🍀</button>
+    <hr style="height: 10px; color: black; width: 100%">
+    <h2 id="lblNowOp">Текущая операция</h2>
+</div>
+</body>
+<script type="module">
+    let req = await fetch('menus_new.json')
+    let menu = await req.json()
+
+    let currentItem = {
+        menuIndex: null,
+        operationIndex: null
+    }
+
+    let createItemIndex = null
+    
+    let newOperations = []
+
+    let renameIndex = null
+
+    summertime_render()
+
+    function summertime_render() {
+        document.getElementById('menusContainer').innerHTML = ''
+        menu.forEach((elem, index) => {
+            let rootItem = document.createElement('div')
+            rootItem.onselectstart = () => {
+                return false
+            }
+            rootItem.classList.add('box');
+            let header = document.createElement('p');
+            header.addEventListener('click', () => {
+                look('cat' + index)
+            })
+            header.innerText = elem.name
+            rootItem.appendChild(header)
+            let innerDiv = document.createElement('div')
+            innerDiv.id = 'cat' + index;
+            innerDiv.style.display = 'none'
+            elem.oper.forEach((oper, optionindex) => {
+                let elem = document.createElement('div')
+                elem.classList.add('option')
+                elem.innerHTML = `
+                <p>📛Название операции: ${oper.name}</p>
+                <p>⏳Время выполнения операции: ${Math.abs(oper.time)} ${oper.time < 0 ? 'мин' : 'час'}</p>
+                <p>🔥Перегрев: ${oper.overtemp}🌡</p>
+                <p>🧨Температура: ${oper.temp}🌡</p>
+                <p>🎾Мощность: ${oper.power}</p>
+                <p>🚭Клапан: ${oper.valve == 1 ? "Включен" : "Отключен"}</p>
+                <p>🔃Вращение назад: ${oper.rev_on}</p>
+                <p>⏸Пауза вращение назад: ${oper.forv_off}</p>
+                <p>🔃Вращение вперёд: ${oper.forv_on}</p>
+                <p>⏸Пауза вращения вперёд: ${oper.rev_off}</p>
+            `;
+                let button = document.createElement('button')
+                button.onclick = () => {
+                    editOption(index, optionindex)
+                }
+                button.innerText = '🧨Редактировать🧨'
+                button.classList.add('editButton')
+
+                let buttonRemove = document.createElement('button')
+                buttonRemove.onclick = () => {
+                    menu[index].oper.splice(optionindex,1)
+                    summertime_render()
+                }
+                buttonRemove.innerText = '🧨Удалить операцию🧨'
+                buttonRemove.classList.add('editButton')
+
+                elem.appendChild(button)
+                elem.appendChild(buttonRemove)
+                innerDiv.appendChild(elem)
+            })
+            rootItem.appendChild(innerDiv)
+            let newOption = document.createElement('button')
+            let deleteOption = document.createElement('button')
+            let changeTitle = document.createElement('button')
+            newOption.innerText = '🥇🥈Добавить новый пункт🥉🏅'
+            newOption.classList.add('editButton')
+            newOption.onclick = () => {
+                appendOptionToMenu(index)
+            }
+            rootItem.appendChild(newOption)
+
+            deleteOption.innerText = '🚫🚫Удалить рецепт🚫🚫'
+            deleteOption.classList.add('editButton')
+            deleteOption.onclick = () => {
+                deleteMenu(index)
+            }
+            rootItem.appendChild(deleteOption)
+
+            changeTitle.innerText = '🖊🖊Изменить название рецепта🖊🖊'
+            changeTitle.classList.add('editButton')
+            changeTitle.onclick = () => {
+                renameMenu(index)
+            }
+            rootItem.appendChild(changeTitle)
+
+
+            document.getElementById('menusContainer').appendChild(rootItem)
+        })
+    }
+    
+    document.getElementById('buttonNewItem').addEventListener('click', (e)=>{
+        e.preventDefault()
+        let data = new FormData(document.getElementById('newOptionForma'))
+        let operation = {
+            name: data.get('name'),
+            time: data.get('time'),
+            forv_off: data.get('forv_off'),
+            valve: data.get('valve') == 'on' ? 1 : 0,
+            rev_on: data.get('rev_on'),
+            overtemp: data.get('overtemp'),
+            temp: data.get('temp'),
+            power: data.get('power'),
+            forv_on: data.get('forv_on'),
+            rev_off: data.get('rev_off'),
+        }
+        newOperations.push(operation)
+        document.getElementById('prevtitle').innerText = document.getElementById('newMenuTitle').value
+        let elem = document.createElement('div')
+        elem.classList.add('option')
+        elem.innerHTML = `
+                <p>📛Название операции: ${operation.name}</p>
+                <p>⏳Время выполнения операции: ${operation.time} ${operation.time < 0 ? 'мин' : 'час'}</p>
+                <p>🔥Перегрев: ${operation.overtemp}</p>
+                <p>🧨Температура: ${operation.temp}</p>
+                <p>🎾Мощность: ${operation.power}</p>
+                <p>🚭Клапан: ${operation.valve == 1 ? "Включен" : "Отключен"}</p>
+                <p>⏸Пауза вращение назад: ${operation.forv_off}</p>
+                <p>🔃Вращение назад: ${operation.rev_on}</p>
+                <p>🔃Вращение вперёд: ${operation.forv_on}</p>
+                <p>⏸Пауза вращения вперёд: ${operation.rev_off}</p>
+            `;
+        document.getElementById('newMenuOptionsHub').appendChild(elem)
+    })
+
+    document.getElementById('saveNewMenuButton').addEventListener('click', (e)=>{
+        e.preventDefault()
+        let nmenu = {
+            name: document.getElementById('newMenuTitle').value,
+            oper: newOperations
+        }
+        menu.push(nmenu)
+        document.getElementById('newMenuOptionsHub').innerHTML = ''
+        document.getElementById('prevtitle').innerText = ''
+        summertime_render()
+        alert('Новый рецепт создан!')
+    })
+
+    function look(elem) {
+        let param = document.getElementById(elem)
+        if (param.style.display == 'none')
+            param.style.display = 'block'
+        else
+            param.style.display = "none"
+    }
+
+    function deleteOption(menuIndex, optionIndex){
+
+    }
+
+    function editOption(menuIndex, optionIndex) {
+        console.log(menu[menuIndex].oper[optionIndex])
+        let element = menu[menuIndex].oper[optionIndex];
+        document.getElementById('changeModal').style.display = 'flex'
+        document.getElementById('chForvOff').value = element.forv_off
+        document.getElementById('chForvOn').value = element.forv_on
+        document.getElementById('chTime').value = element.time
+        document.getElementById('chName').value = element.name
+        document.getElementById('chRevOff').value = element.rev_off
+        document.getElementById('chRevOn').value = element.rev_on
+        document.getElementById('chPower').value = element.power
+        document.getElementById('chTemp').value = element.temp
+        document.getElementById('chOvertemp').value = element.overtemp
+        currentItem.menuIndex = menuIndex
+        currentItem.operationIndex = optionIndex
+    }
+
+
+
+    document.getElementById('editOperation').addEventListener('click', (e)=>{
+        e.preventDefault()
+        let data = new FormData(document.getElementById('newOptionForm'))
+        let editedElement = {
+            name: data.get('name'),
+            time: data.get('time'),
+            forv_off: data.get('forv_off'),
+            valve: data.get('valve') == 'on' ? 1 : 0,
+            rev_on: data.get('rev_on'),
+            overtemp: data.get('overtemp'),
+            temp: data.get('temp'),
+            power: data.get('power'),
+            forv_on: data.get('forv_on'),
+            rev_off: data.get('rev_off'),
+        }
+        menu[currentItem.menuIndex].oper[currentItem.operationIndex] = editedElement
+        summertime_render()
+        document.getElementById('changeModal').style.display = 'none'
+    })
+
+    document.getElementById('createOperation').addEventListener('click', (e) => {
+        e.preventDefault()
+        let data = new FormData(document.getElementById('createOptionForm'))
+        let editedElement = {
+            name: data.get('name'),
+            time: data.get('time'),
+            forv_off: data.get('forv_off'),
+            valve: data.get('valve') == 'on' ? 1 : 0,
+            rev_on: data.get('rev_on'),
+            overtemp: data.get('overtemp'),
+            temp: data.get('temp'),
+            power: data.get('power'),
+            forv_on: data.get('forv_on'),
+            rev_off: data.get('rev_off'),
+        }
+        menu[createItemIndex].oper.push(editedElement)
+        summertime_render()
+        document.getElementById('createModal').style.display = 'none'
+    })
+
+    document.getElementById('changeTitleButton').addEventListener('click', (e)=>{
+        e.preventDefault()
+        let data = new FormData(document.getElementById('changeTitleForm'))
+        menu[renameIndex].name = data.get('name')
+        summertime_render()
+        document.getElementById('changeTitle').style.display = 'none'
+    })
+
+    function appendOptionToMenu(index) {
+        console.log(menu[index])
+        createItemIndex = index
+        document.getElementById('createModal').style.display = 'flex'
+    }
+
+
+
+    function deleteMenu(index) {
+        console.log(menu[index])
+        menu.splice(index,1)
+        summertime_render()
+        alert('Удалено!')
+    }
+
+    document.getElementById('closeChange').addEventListener('click', () => {
+        document.getElementById('changeModal').style.display = 'none'
+    })
+
+    document.getElementById('createChange').addEventListener('click', () => {
+        document.getElementById('createModal').style.display = 'none'
+    })
+
+    document.getElementById('closeChangeModal').addEventListener('click', ()=>{
+        document.getElementById('changeTitle').style.display = 'none'
+    })
+
+    function renameMenu(index){
+        document.getElementById('changeTitle').style.display = 'flex'
+        renameIndex = index
+        document.getElementById('chTitle').value = menu[index].name
+    }
+
+</script>
+</html>

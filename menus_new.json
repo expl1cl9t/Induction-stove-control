@@ -1,0 +1,65 @@
+[
+  {
+    "name": "Новый рецепт",
+    "oper": [
+      {
+        "name": "Новая операция",
+        "forv_off": 0,
+        "time": 15,
+        "valve": 0,
+        "rev_on": 0,
+        "overtemp": 1,
+        "temp": 25.0,
+        "power": 0,
+        "forv_on": 0,
+        "rev_off": 0
+      }
+    ]
+  },
+  {
+    "name": "Творог",
+    "oper": [
+      {
+        "name": "Выдержка",
+        "forv_off": 0,
+        "time": -15,
+        "valve": 0,
+        "rev_on": 0,
+        "overtemp": 1,
+        "temp": 25.0,
+        "power": 0,
+        "forv_on": 0,
+        "rev_off": 0
+      },
+      {
+        "name": "Нагревание",
+        "forv_off": 0,
+        "valve": 0,
+        "time": 15,
+        "rev_on": 0,
+        "overtemp": 1,
+        "temp": 25.0,
+        "power": 0,
+        "forv_on": 0,
+        "rev_off": 0
+      }
+    ]
+  },
+  {
+    "name": "Новый рецепт",
+    "oper": [
+      {
+        "name": "Новая операция",
+        "forv_off": 0,
+        "valve": 0,
+        "time": 15,
+        "rev_on": 0,
+        "overtemp": 1,
+        "temp": 25.0,
+        "power": 0,
+        "forv_on": 0,
+        "rev_off": 0
+      }
+    ]
+  }
+]

@@ -1,0 +1,30 @@
+[
+  {
+    "rot_rev_on": 0,
+    "time": 1,
+    "next_op": 1,
+    "rot_forv_off": 0,
+    "prev_op": null,
+    "rot_forv_on": 0,
+    "name": "Первая операция",
+    "temper": 25,
+    "rot_rev_off": 0,
+    "valve": false,
+    "rot_speed": 0,
+    "power": 0
+  },
+  {
+    "rot_rev_on": 0,
+    "time": -35,
+    "next_op": null,
+    "rot_forv_off": 0,
+    "prev_op": 0,
+    "rot_forv_on": 0,
+    "name": "Вторая операция",
+    "temper": 25,
+    "rot_rev_off": 0,
+    "valve": false,
+    "rot_speed": 0,
+    "power": 0
+  }
+]
